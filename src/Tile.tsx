@@ -9,17 +9,15 @@ interface Props {
 }
 
 export const Tile: React.FC<Props> = (props) => {
-  const size = 600 / props.size - 8;
-  const tileSize = `${size}px`;
-  const fontSize = `${size / 4}px`;
+  const size = 100 / props.size;
+  const tileSize = `calc(${size}% - 8px)`;
+  const fontSize = `${size}px`;
 
   return (
     <div 
       onClick={() => props.toggle(props.row, props.col)} 
       className={`tile ${props.active ? 'active' : ''}`}
-      style={{width: tileSize, height: tileSize, lineHeight: tileSize, fontSize}}
-    >
-      &#9673;
-    </div>
+      style={{width: tileSize, height: tileSize, fontSize}}
+    />
   );
 }
